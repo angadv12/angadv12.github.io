@@ -44,6 +44,7 @@
     font-size: 5rem;
     text-align: center;
     color: #8576c1;
+    margin-bottom: 15%;
   }
 
   .name-position p {
@@ -52,7 +53,7 @@
   }
 
   .name-position {
-    margin-bottom: 10px;
+    margin-bottom: 15%;
   }
 
   .contact {
@@ -63,4 +64,37 @@
     font-size: 2rem;
     margin-right: 10px;
     color: #c4baea;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #c4baea;
+    font-size: 1.25rem;
+    background-color: #18181A; /* dark background */
+    font-family: BlinkMacSystemFont, system-ui, sans-serif;
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    padding: 2%;
+  }
+
+  footer div {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  footer div a, a:visited {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #c4baea;
+  }
+
+  .bio {
+    margin-bottom: 10%;
   }
