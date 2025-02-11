@@ -1,0 +1,10 @@
+.name {
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+body {
+    background-color: lightgrey;
+}
