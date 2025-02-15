@@ -1,0 +1,57 @@
+.experience {
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    background-color: #18181A;
+    padding: 2%;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  
+  .experience h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #c4baea;
+  }
+  
+  .experience-item {
+    margin: 20px 0;
+    padding: 10px;
+    color: #c4baea;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .experience-item h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  
+  .experience-item .info {
+    font-style: italic;
+    margin-bottom: 5px;
+  }
+  
+  .experience-item .description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .experience-item li {
+    margin-left: 1%;
+  }
+
+  .picture {
+    width: 100%;
+  }
+
+  .pic-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .info-container {
+    width: 50%;
+    padding-right: 2%;
+  }

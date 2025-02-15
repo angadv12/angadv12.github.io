@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+  margin: 0;
+  background-color: #18181A; /* dark background */
+  font-family: "Atkinson Hyperlegible Mono", serif;
+  color: white;
+  /* Allow the body to grow and scroll if content is taller than the screen */
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  /* Fixed positioning keeps it in place on screen */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  /* Use viewport-relative widths/heights */
+  width: 100vw; 
+  height: 100vh;  
+  background-image: 
+    linear-gradient(to right, #2C283C 1px, transparent 1px),
+    linear-gradient(to bottom, #2C283C 1px, transparent 1px);
+  background-size: 50px 50px; /* adjust grid spacing */
+  pointer-events: none;
+  /* put it behind everything else, ensuring your content scrolls on top */
+  z-index: -1; 
+}
+
+.container {
+  padding-top: 20vh;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.name-position h1 {
+  font-size: 5rem;
+  text-align: center;
+  color: #8576c1;
+  margin-bottom: 15%;
+}
+
+.name-position p {
+  font-size: 2rem;
+  color: #c4baea;
+}
+
+.name-position {
+  margin-bottom: 15%;
+}
+
+.contact {
+  display: flex;
+}
+
+.contact-icon, .contact-icon:visited {
+  font-size: 2rem;
+  margin-right: 20px;
+  color: #c4baea;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #c4baea;
+  font-size: 1.25rem;
+  background-color: #18181A; /* dark background */
+  font-family: BlinkMacSystemFont, system-ui, sans-serif;
+  position: absolute;
+  bottom: 0;
+  height: 5vh;
+  width: 100%;
+  border-top: 1px solid lightgrey;
+  padding: 2.5%;
+}
+
+footer div {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.footer-icon, .footer-icon:visited {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: #c4baea;
+}
+
+.bio {
+  margin-bottom: 10%;
+}

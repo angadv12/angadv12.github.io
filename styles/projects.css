@@ -1,0 +1,85 @@
+.projects {
+    /* border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey; */
+    /* background-color: #18181A; */
+  padding: 2%;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.projects h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #c4baea;
+  margin-bottom: 1%;
+}
+
+.projects-cards {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.projects-item {
+  margin: 10px;
+  background-color: #c4baea;
+  color: #2C283C;
+  flex: 1;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+}
+
+.projects-item:hover {
+  box-shadow: 0 0 10px 10px #18181A; /* Creates a glowing effect */
+  transform: scale(1.05); /* Adds a subtle zoom effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+
+.projects-item h2 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.projects-item .stack {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.projects-item .description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.projects-item .name-logo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.projects-item .logo {
+  height: 100%;
+  margin-right: 5px;
+}
+
+.projects-item .gh_link {
+  font-size: 20px;
+}
+
+.gh_link, .gh_link:visited {
+  color: #2C283C;
+  font-size: 20px;
+}
+
+.gh_link i {
+  font-size: 2rem; /* overrides the 1em default sizing of the SVG */
+}
