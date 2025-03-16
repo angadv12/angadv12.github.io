@@ -100,3 +100,61 @@ footer div {
 .bio {
   margin-bottom: 10%;
 }
+
+.cursor-glow {
+  /* Position and size */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px; 
+  height: 150px;
+  
+  /* Make it round and center the gradient in the circle */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Create a radial gradient with warm tones (adjust to taste) */
+  background: radial-gradient(
+    circle at center,
+    rgba(250, 207, 107, 0.5) 0%,  /* soft warm center */
+    rgba(255, 223, 150, 0) 70%    /* fade to transparent */
+  );
+
+  /* Blend mode can help it look more like a light source */
+  mix-blend-mode: screen;
+
+  /* Prevent the glow from blocking clicks */
+  pointer-events: none;
+
+  /* Optional: small transition for smoother movement */
+  transition: transform 0.05s ease-out;
+  z-index: 9999; /* ensure it’s above other elements */
+}
+
+.cursor-glow-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Warm radial gradient; tweak RGBA for color/intensity */
+  background: radial-gradient(
+    circle at center,
+    rgba(249, 238, 213, 0.5) 0%,
+    rgba(255, 223, 150, 0) 70%
+  );
+  mix-blend-mode: screen;
+
+  /* Flicker (pulsing) animation */
+  animation: flicker 2.5s infinite ease-in-out;
+}
+
+/* Slight flicker/pulse: tweak timing, scale, opacity for realism */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}

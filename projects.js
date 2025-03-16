@@ -24,7 +24,7 @@ const projects = [
     const projectsContainer = document.querySelector(".projects-cards");
   
     projects.forEach(proj => {
-      // Create a container for each projects item
+      // container for each project card
       const projItem = document.createElement("div");
       projItem.classList.add("projects-item");
       
@@ -64,5 +64,25 @@ const projects = [
     
       projectsContainer.appendChild(projItem);
     });
+
+    // Function to check if projects container is in viewport
+    const checkVisibility = () => {
+      const sectionTop = projectsContainer.getBoundingClientRect().top;
+      const sectionBottom = projectsContainer.getBoundingClientRect().bottom;
+      const windowHeight = window.innerHeight;
+      
+      // Add visible class when top of element is in viewport (75% threshold)
+      if (sectionTop < windowHeight * 0.75 && sectionBottom > 0) {
+        projectsContainer.classList.add("is-visible");
+      } else {
+        projectsContainer.classList.remove("is-visible");
+      }
+    };
+    
+    // Check visibility on page load
+    checkVisibility();
+    
+    // Check visibility on scroll
+    window.addEventListener("scroll", checkVisibility);
   });
   

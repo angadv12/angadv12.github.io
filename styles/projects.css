@@ -15,10 +15,18 @@
 }
 
 .projects-cards {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   display: flex;
   width: 100%;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.projects-cards.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .projects-item {
@@ -30,14 +38,15 @@
   box-sizing: border-box;
   border-radius: 10px;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .projects-item:hover {
-  box-shadow: 0 0 10px 10px #18181A; /* Creates a glowing effect */
-  transform: scale(1.05); /* Adds a subtle zoom effect */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  z-index: 1;
+  /* box-shadow: 0 0 10px 10px #18181A; */
+  border: 2px solid #ffffff;
+  transform: scale(1.1);
 }
-
 
 .projects-item h2 {
   font-size: 2rem;
