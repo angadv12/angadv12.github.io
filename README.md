@@ -4,6 +4,4 @@
 [angadbrar.dev](https://angadbrar.dev)
 
 ## Stack
-- HTML
-- CSS
-- JS
+- Vanilla HTML, CSS, JS

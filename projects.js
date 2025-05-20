@@ -50,13 +50,13 @@ const projects = [
       nameLogoDiv.appendChild(gh_link);
       projItem.appendChild(nameLogoDiv);
       
-      // Create and append the stack
+      // project tech stack
       const stack = document.createElement("p");
       stack.classList.add("stack");
       stack.textContent = proj.stack;
       projItem.appendChild(stack);
       
-      // Create and append the description
+      // project description
       const description = document.createElement("p");
       description.classList.add("description");
       description.textContent = proj.description;
@@ -65,13 +65,13 @@ const projects = [
       projectsContainer.appendChild(projItem);
     });
 
-    // Function to check if projects container is in viewport
+    // check if projects container is in viewport
     const checkVisibility = () => {
       const sectionTop = projectsContainer.getBoundingClientRect().top;
       const sectionBottom = projectsContainer.getBoundingClientRect().bottom;
       const windowHeight = window.innerHeight;
       
-      // Add visible class when top of element is in viewport (75% threshold)
+      // add visible class when top of element is in viewport (75% threshold)
       if (sectionTop < windowHeight * 0.75 && sectionBottom > 0) {
         projectsContainer.classList.add("is-visible");
       } else {
@@ -79,10 +79,7 @@ const projects = [
       }
     };
     
-    // Check visibility on page load
     checkVisibility();
-    
-    // Check visibility on scroll
     window.addEventListener("scroll", checkVisibility);
   });
   

@@ -19,6 +19,14 @@ const experiences = [
             "Created schedule builder feature for a more comprehensive advising platform for over 20000 regular users (80% of UVA student body)."
         ],
         pic_uri: "/assets/tCF.png"
+    },
+    {
+        title: "Software Engineer",
+        info: "Lean TECHniques | May 2025 - Aug 2025",
+        description: [
+            "Incoming Summer 2025"
+        ],
+        pic_uri: "/assets/LT_logo.png"
     }
   ];
   
