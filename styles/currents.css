@@ -1,37 +1,37 @@
-.projects {
+.currents {
   padding: 2%;
   width: 100%;
   margin-bottom: 10%;
 }
 
-.projects h1 {
+.currents h1 {
   font-size: 3rem;
   text-align: center;
   color: #c4baea;
   margin-bottom: 1%;
 }
 
-.projects-cards {
+.currents-cards {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   display: flex;
-  width: 100%;
+  width: 34%;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.projects-cards.is-visible {
+.currents-cards.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.projects-item {
+.currents-item {
   margin: 10px;
   background-color: #242428;
   color: #c4baea;
   flex: 1;
-  padding: 40px 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 10px;
   position: relative;
@@ -41,33 +41,23 @@
               background-color 0.4s ease;
 }
 
-.projects-item:hover {
+.currents-item:hover {
   z-index: 1;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
   background-color: #2a2a30;
 }
 
-.projects-item h2 {
+.currents-item h2 {
   font-size: 2rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.projects-item .stack {
-  font-style: italic;
-  text-align: center;
-}
-
-.projects-item .description {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-.projects-item .name-logo {
+.currents-item .name-logo {
+  text-wrap: nowrap;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   height: 50px;
@@ -76,10 +66,22 @@
   margin-bottom: 20px;
 }
 
-.projects-item .logo {
+.currents-item .stack {
+  font-style: italic;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+.currents-item .description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* .currents-item .logo {
   height: 100%;
   margin-right: 5px;
-}
+} */
 
 .gh_link, .gh_link:visited {
   color: #c4baea;

@@ -3,7 +3,7 @@ const projects = [
     {
       name: "Divvy",
       logo_uri: "/assets/Divvy_logo.png",
-      stack: "React Native (TypeScript), Firebase/Firestore, Tesseract OCR, PayPal API",
+      stack: "React Native (TS), Firebase/Firestore, Tesseract-OCR, PayPal API",
       description: "Scan Receipts -> Split the Bills -> Get Paid"
     },
     {
@@ -16,7 +16,7 @@ const projects = [
       name: "PropertyIQ",
       logo_uri: "/assets/PropertyIQ_logo.png",
       stack: "Django, React, Scikit-Learn, SQLite, Google OAuth 2.0, ngrok",
-      description: "Property Listings & Price Predictions with Gradient Boosting Model"
+      description: "Property Listings & Price Predictions with XGBoost"
     }
   ];
   
@@ -50,17 +50,18 @@ const projects = [
       nameLogoDiv.appendChild(gh_link);
       projItem.appendChild(nameLogoDiv);
       
-      // project tech stack
-      const stack = document.createElement("p");
-      stack.classList.add("stack");
-      stack.textContent = proj.stack;
-      projItem.appendChild(stack);
-      
       // project description
       const description = document.createElement("p");
       description.classList.add("description");
       description.textContent = proj.description;
+
+      // project tech stack
+      const stack = document.createElement("p");
+      stack.classList.add("stack");
+      stack.textContent = proj.stack;
+
       projItem.appendChild(description);
+      projItem.appendChild(stack);
     
       projectsContainer.appendChild(projItem);
     });
