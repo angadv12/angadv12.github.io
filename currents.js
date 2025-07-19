@@ -1,10 +1,5 @@
 // Array of currents objects
 const currents = [
-    {
-      name: "courtcast-API",
-      stack: "YOLOv9, DeepSORT, RANSAC, FastAPI, Redis Queue, Uvicorn, TimeScaleDB, Postgres",
-      description: "Turn any basketball video into structured, query-ready stats & visualizations"
-    },
   ];
   
   document.addEventListener("DOMContentLoaded", () => {

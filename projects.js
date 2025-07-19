@@ -1,5 +1,10 @@
 // Array of projects objects
 const projects = [
+      {
+      name: "courtcast-API",
+      stack: "YOLOv9, DeepSORT, RANSAC, FastAPI, Redis Queue, Uvicorn, TimeScaleDB, Postgres",
+      description: "Turn any basketball video into structured, query-ready stats & visualizations"
+    },
     {
       name: "Divvy",
       logo_uri: "/assets/Divvy_logo.png",
@@ -12,12 +17,6 @@ const projects = [
       stack: "MongoDB, Express, React, Node.js, Puppeteer, Tailwind CSS",
       description: "NBA Box Scores, Sports News, Community Forums"
     },
-    {
-      name: "PropertyIQ",
-      logo_uri: "/assets/PropertyIQ_logo.png",
-      stack: "Django, React, Scikit-Learn, SQLite, Google OAuth 2.0, ngrok",
-      description: "Property Listings & Price Predictions with XGBoost"
-    }
   ];
   
   document.addEventListener("DOMContentLoaded", () => {
