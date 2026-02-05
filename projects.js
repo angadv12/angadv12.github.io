@@ -1,21 +1,22 @@
 // Array of projects objects
 const projects = [
-      {
+	{
+      name: "Notion 2nd Brain",
+    //   logo_uri: "/assets/NotionBrain_logo.png",
+      stack: "FastAPI, Uvicorn, Notion API, Gemini-3-Flash, Docker, Railway",
+      description: "Turns raw thoughts into structured Notion tasks w/ actionable plans, powered by Gemini-3."
+    },
+    {
       name: "courtcast-API",
-      stack: "YOLOv9, DeepSORT, RANSAC, FastAPI, Redis Queue, Uvicorn, TimeScaleDB, Postgres",
-      description: "Turn any basketball video into structured, query-ready stats & visualizations"
+	//   logo_uri: "/assets/courtcast_logo.png",
+      stack: "YOLOv11, SAM2, FastAPI, Redis, Canvas API",
+      description: "Creates structured, query-ready stats & visualizations from NBA broadcast footage."
     },
     {
       name: "Divvy",
       logo_uri: "/assets/Divvy_logo.png",
-      stack: "React Native (TS), Firebase/Firestore, Tesseract-OCR, PayPal API",
+      stack: "React Native, GPT-4.1-mini, Firebase, PayPal API",
       description: "Scan Receipts -> Split the Bills -> Get Paid"
-    },
-    {
-      name: "GameFeed",
-      logo_uri: "/assets/GameFeed_logo.png",
-      stack: "MongoDB, Express, React, Node.js, Puppeteer, Tailwind CSS",
-      description: "NBA Box Scores, Sports News, Community Forums"
     },
   ];
   

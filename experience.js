@@ -1,10 +1,22 @@
 // Array of experience objects
 const experiences = [
   {
+	title: "Software Engineer Intern",
+	info: "Capital One | June 2026 - Aug 2026",
+	description: [
+		"Incoming TIP Intern for Summer 2026."
+	],
+	pic_uri: "/assets/CapitalOne_logo.png"
+  },
+  {
     title: "Software Engineer Intern",
     info: "Lean TECHniques | May 2025 - Aug 2025",
     description: [
-      "Incoming Summer 2025"
+      "Developed full-stack AI-powered translation service for Vermeer Corp. to address 30-90 day manual translation bottleneck, using Azure AI Foundry to reduce translation timeframe to 1-2 days and enable 15x faster global product deployment.",
+	  "Modernized Vermeer deployments via Terraform and Actions automation, promoting move to an Agile environment.",
+	  "Designed E2E test suite with Cypress and pre-commit linting to avoid trivial failed CI checks and improve commit history.",
+	  "Built MVP for internal security tool with React/Node/Express, deployed on Lambda/APIgw/S3/Cloudfront/R53 stack.",
+	  "Cleaned and structured large sensor datasets for client John Deere, and architected PyTorch models to predict component failures, demonstrating 10% downtime reduction in simulated fleet testing."
     ],
     pic_uri: "/assets/LT_logo.png"
   },
@@ -12,10 +24,11 @@ const experiences = [
     title: "Software Engineer",
     info: "theCourseForum | Aug 2024 - Present",
     description: [
-      "Moderated toxic reviews at-submission using Detoxify model - reducing toxic review rate to 4 per 100 reviews in testing.",
-      "Introduced rate limiting on review submission, reducing spam and lowering request costs by 10% (20000 regular users).",
-      "Engineered async pagination on reviews & feature searches, improving search load times by more than 100%.",
-      "Participated in backlog creation/handling and requirements elicitation & design in weekly Scrum meetings.",
+      "Implemented moderation of toxic course reviews on-submission using Toxic-BERT model through HuggingFace and purged existing reviews above toxicity threshold, resulting in a reduction of platform review population of 15%.",
+      "Refactored query architecture to scale for 25k users, reducing latency by 120% and optimizing performance for high-traffic.",
+      "Containerized the Django app + Postgres DB dev environment with Docker and created one-command setup script to ensure reproducible setups for new members, reducing onboarding time from 2 meetings to 1.",
+      "Gamified with karma and badges, boosting average session length and posts/user by 14%, generating product insights.",
+      "Integrated rate limiting on review submission, reducing spam requests and lowering monthly AWS costs by 5-10%."
     ],
     pic_uri: "/assets/tCF.png"
   },
