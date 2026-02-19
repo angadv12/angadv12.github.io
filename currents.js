@@ -1,66 +1,144 @@
-// Array of currents objects
-const currents = [
-  ];
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const currentsContainer = document.querySelector(".currents-cards");
-  
-    currents.forEach(curr => {
-      // container for each current card
-      const currItem = document.createElement("div");
-      currItem.classList.add("currents-item");
-      
-      const nameLogoDiv = document.createElement("div");
-      nameLogoDiv.classList.add("name-logo");
+// Mount the 3D animated scene as a fullbleed background behind the hero
+document.addEventListener("DOMContentLoaded", () => {
+	const host = document.getElementById("hero-scene");
+	const canvas = document.getElementById("hero-canvas");
 
-      // Create title without logo
-      const name = document.createElement("h2");
-      name.classList.add("name");
-      name.textContent = curr.name;
-      
-      // GitHub link
-      const gh_link = document.createElement("a");
-      gh_link.classList.add("gh_link");
-      gh_link.href = `https://github.com/angadv12/${curr.name}`;
-      const gh_link_i = document.createElement("i");
-      gh_link_i.classList.add("bi");
-      gh_link_i.classList.add("bi-github");
+	if (host && canvas) {
+		mountHeroScene(host, canvas);
+	}
+});
 
-      gh_link.appendChild(gh_link_i);
-      
-      nameLogoDiv.appendChild(name);
-      nameLogoDiv.appendChild(gh_link);
-      currItem.appendChild(nameLogoDiv);
-      
-      // current description
-      const description = document.createElement("p");
-      description.classList.add("description");
-      description.textContent = curr.description;
+function mountHeroScene(host, canvas) {
+	if (typeof THREE === "undefined") {
+		// Three.js didn't load — silently degrade
+		return;
+	}
 
-      // current tech stack
-      const stack = document.createElement("p");
-      stack.classList.add("stack");
-      stack.textContent = curr.stack;
-      
-      currItem.appendChild(description);
-      currItem.appendChild(stack);
-      currentsContainer.appendChild(currItem);
-    });
+	const scene = new THREE.Scene();
 
-    // check if currents container is in viewport
-    const checkVisibility = () => {
-      const sectionTop = currentsContainer.getBoundingClientRect().top;
-      const sectionBottom = currentsContainer.getBoundingClientRect().bottom;
-      const windowHeight = window.innerHeight;
-      
-      // add visible class when top of element is in viewport (75% threshold)
-      if (sectionTop < windowHeight * 0.75 && sectionBottom > 0) {
-        currentsContainer.classList.add("is-visible");
-      } else {
-        currentsContainer.classList.remove("is-visible");
-      }
-    };
-    
-    checkVisibility();
-    window.addEventListener("scroll", checkVisibility);
-  });
+	const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+	camera.position.set(0, 0, 5.5);
+
+	const renderer = new THREE.WebGLRenderer({
+		canvas,
+		antialias: true,
+		alpha: true, // transparent so page background shows through
+	});
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+	renderer.setClearColor(0x000000, 0);
+
+	// ── Lighting ───────────────────────────────────────────────────
+	scene.add(new THREE.AmbientLight(0x8cc8ff, 0.55));
+
+	const keyLight = new THREE.PointLight(0x84ffd3, 1.1, 30);
+	keyLight.position.set(4, 3, 5);
+	scene.add(keyLight);
+
+	const rimLight = new THREE.PointLight(0x5f8bff, 0.8, 30);
+	rimLight.position.set(-4, -2, -5);
+	scene.add(rimLight);
+
+	// ── Animated torus knot — gently spinning ─────────────────────
+	const torusKnot = new THREE.Mesh(
+		new THREE.TorusKnotGeometry(1.6, 0.45, 200, 32, 2, 3),
+		new THREE.MeshStandardMaterial({
+			color: 0x7ecaff,
+			metalness: 0.6,
+			roughness: 0.18,
+			wireframe: true,
+			transparent: true,
+			opacity: 0.22,
+		}),
+	);
+	scene.add(torusKnot);
+
+	// ── Icosahedron shell — slowly counter-rotating ───────────────
+	const shell = new THREE.Mesh(
+		new THREE.IcosahedronGeometry(2.4, 1),
+		new THREE.MeshBasicMaterial({
+			color: 0x74ffd4,
+			wireframe: true,
+			transparent: true,
+			opacity: 0.07,
+		}),
+	);
+	scene.add(shell);
+
+	// ── Floating particles ────────────────────────────────────────
+	const particleCount = 120;
+	const positions = new Float32Array(particleCount * 3);
+	for (let i = 0; i < particleCount; i++) {
+		positions[i * 3] = (Math.random() - 0.5) * 8;
+		positions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+		positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
+	}
+	const particlesGeo = new THREE.BufferGeometry();
+	particlesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+	const particlesMat = new THREE.PointsMaterial({
+		color: 0x9bf7dc,
+		size: 0.035,
+		transparent: true,
+		opacity: 0.7,
+		sizeAttenuation: true,
+	});
+	const particles = new THREE.Points(particlesGeo, particlesMat);
+	scene.add(particles);
+
+	// ── Animation ─────────────────────────────────────────────────
+	let rafId = null;
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	const renderFrame = (now) => {
+		const t = now * 0.001;
+
+		torusKnot.rotation.x = t * 0.15;
+		torusKnot.rotation.y = t * 0.22;
+		torusKnot.position.y = Math.sin(t * 0.4) * 0.15;
+
+		shell.rotation.y = -t * 0.08;
+		shell.rotation.x = Math.sin(t * 0.2) * 0.1;
+
+		// gentle floating particles drift
+		const posArr = particlesGeo.attributes.position.array;
+		for (let i = 0; i < particleCount; i++) {
+			posArr[i * 3 + 1] += Math.sin(t + i) * 0.0008;
+		}
+		particlesGeo.attributes.position.needsUpdate = true;
+
+		renderer.render(scene, camera);
+		rafId = requestAnimationFrame(renderFrame);
+	};
+
+	// ── Resize ────────────────────────────────────────────────────
+	const resize = () => {
+		const w = host.clientWidth;
+		const h = host.clientHeight;
+		if (w === 0 || h === 0) return;
+		renderer.setSize(w, h, false);
+		camera.aspect = w / h;
+		camera.updateProjectionMatrix();
+	};
+
+	resize();
+	if (typeof ResizeObserver !== "undefined") {
+		new ResizeObserver(resize).observe(host);
+	} else {
+		window.addEventListener("resize", resize);
+	}
+
+	if (reduceMotion) {
+		renderer.render(scene, camera);
+		return;
+	}
+
+	rafId = requestAnimationFrame(renderFrame);
+
+	document.addEventListener("visibilitychange", () => {
+		if (document.hidden && rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		} else if (!document.hidden && rafId === null) {
+			rafId = requestAnimationFrame(renderFrame);
+		}
+	});
+}
