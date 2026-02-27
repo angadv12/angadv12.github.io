@@ -1,0 +1,52 @@
+/* ── Cursor Glow ─────────────────────────────────────────────────── */
+.cursor-glow {
+	position: fixed;
+	width: 150px;
+	height: 150px;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	will-change: transform, left, top;
+}
+
+.cursor-glow-inner {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: radial-gradient(circle at center,
+			rgba(148, 236, 255, 0.54) 0%,
+			rgba(120, 204, 255, 0.36) 24%,
+			rgba(79, 143, 255, 0.18) 48%,
+			rgba(45, 98, 222, 0) 78%);
+	filter: blur(16px);
+	mix-blend-mode: screen;
+	box-shadow: 0 0 38px rgba(132, 214, 255, 0.18);
+	opacity: 0.72;
+	animation: flicker 3s infinite ease-in-out;
+}
+
+@keyframes flicker {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.62;
+	}
+
+	50% {
+		transform: scale(1.09);
+		opacity: 0.8;
+	}
+
+	25%,
+	75% {
+		transform: scale(0.97);
+		opacity: 0.66;
+	}
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+	.cursor-glow {
+		display: none;
+	}
+}
