@@ -1,0 +1,55 @@
+/* ── About Section ──────────────────────────────────────────────── */
+.about {
+	border: 1px solid var(--card-border);
+	background: linear-gradient(145deg, rgba(18, 30, 44, 0.85), rgba(9, 16, 25, 0.92));
+	border-radius: 18px;
+	padding: clamp(1.5rem, 3vw, 2.2rem);
+	box-shadow: var(--card-shadow);
+}
+
+.about-header {
+	display: flex;
+	align-items: center;
+	gap: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+.about-photo {
+	width: clamp(80px, 12vw, 120px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center top;
+	border: 2px solid rgba(140, 200, 255, 0.35);
+	box-shadow:
+		0 0 0 5px rgba(137, 255, 215, 0.08),
+		0 0 28px rgba(100, 190, 255, 0.22);
+	transition: box-shadow 0.35s ease;
+	flex-shrink: 0;
+}
+
+.about-photo:hover {
+	box-shadow:
+		0 0 0 6px rgba(137, 255, 215, 0.15),
+		0 0 44px rgba(100, 190, 255, 0.35);
+}
+
+.about h2 {
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	color: var(--heading-color);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.about-body {
+	font-size: 0.97rem;
+	color: var(--text-muted);
+	line-height: 1.85;
+}
+
+@media (max-width: 500px) {
+	.about-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

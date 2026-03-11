@@ -1,0 +1,90 @@
+/* ── 3D Scene — fullbleed behind hero ───────────────────────────── */
+.hero-scene {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.hero-scene canvas {
+	width: 100% !important;
+	height: 100% !important;
+	display: block;
+}
+
+/* ── Hero / Bio — centred column ────────────────────────────────── */
+.bio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	text-align: center;
+	min-height: 55vh;
+	justify-content: center;
+	position: relative;
+}
+
+.bio-text {
+	display: grid;
+	gap: 1.2rem;
+	justify-items: center;
+	position: relative;
+	z-index: 2;
+}
+
+.name-position {
+	display: grid;
+	gap: 0.55rem;
+}
+
+.name-position h1 {
+	font-size: clamp(2.2rem, 7vw, 4.5rem);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: #eaf6ff;
+	text-shadow: 0 0 30px rgba(84, 163, 255, 0.25);
+}
+
+.name-position p {
+	font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+	color: var(--text-muted);
+	letter-spacing: 0.11em;
+	text-transform: uppercase;
+}
+
+.contact {
+	display: flex;
+	align-items: center;
+	gap: 0.9rem;
+}
+
+.contact-icon,
+.contact-icon:visited {
+	font-size: 1.35rem;
+	color: #d6ebff;
+	border: 1px solid rgba(135, 201, 255, 0.3);
+	background: rgba(14, 30, 45, 0.55);
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+	text-decoration: none;
+}
+
+.contact-icon:hover {
+	transform: translateY(-3px);
+	color: #efffff;
+	border-color: rgba(143, 255, 221, 0.62);
+}
+
+@media (max-width: 700px) {
+	.bio {
+		min-height: 50vh;
+	}
+}
