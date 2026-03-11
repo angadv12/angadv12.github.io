@@ -24,7 +24,7 @@ export default function Footer() {
           <i className="bi bi-envelope-at"></i>
         </a>
       </div>
-      <p>Created by Angad Brar &#127918;</p>
+      <p>Created by Angad Brar &#xA9; {new Date().getFullYear()}</p>
     </footer>
   );
 }
